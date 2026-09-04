@@ -1,0 +1,54 @@
+# Configuration étendue pour Speckit
+
+# Paramètres de l'analyseur
+parser:
+  python:
+    enabled: true
+    version: "3.10+"
+    
+  javascript:
+    enabled: true
+    frameworks:
+      - react
+      - node
+      - express
+    
+  typescript:
+    enabled: true
+    strict: true
+
+# Paramètres de sortie
+output:
+  # Personnalisation HTML
+  html:
+    theme: "dark"
+    include_search: true
+    include_toc: true
+  
+  # Personnalisation Markdown
+  markdown:
+    include_frontmatter: true
+    toc_depth: 3
+
+# Règles personnalisées
+custom_rules:
+  - id: "stargate-prefix"
+    description: "Toutes les classes doivent commencer par SGU" 
+    pattern: "class (?!SGU)[A-Z]"
+    severity: "warning"
+    
+  - id: "no-console-log"
+    description: "Interdiction d'utiliser console.log en production"
+    pattern: "console\.log\("
+    severity: "error"
+    paths:
+      - "src/**/*.js"
+      - "src/**/*.ts"
+
+# Dictionnaire de termes
+terms:
+  - name: "SGU"
+    description: "Stargate Universe - Préfixe pour toutes les classes du projet"
+    
+  - name: "Gate"
+    description: "Porte des étoiles - Composant principal du système"

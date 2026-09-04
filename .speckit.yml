@@ -1,0 +1,17 @@
+# .speckit.yml
+name: Stargate-Universe
+version: 0.1.0
+description: Analyse et documentation automatique du projet.
+include:
+  - src/**/*.py  # Remplace par les extensions de tes fichiers (ex: .js, .ts, .java)
+  - docs/**/*.md
+exclude:
+  - node_modules/
+  - .git/
+  - dist/
+output:
+  docs: ./docs/speckit  # Dossier de sortie pour la documentation
+rules:
+  - no-dead-code
+  - consistent-naming
+  - max-file-length: 500
